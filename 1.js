@@ -59,7 +59,7 @@ form.onsubmit = async e => {
   await addDoc(collection(db, "tareas"), data);
 
   // Enviar correo con EmailJS
-  await emailjs.send("service_cq0m6yw", "template_tc0vivn", {
+  await emailjs.send("service_cq0m6yw","template_tc0vivn"), {
     titulo: data.titulo,
     descripcion: data.descripcion,
     fecha: data.fecha,
@@ -72,8 +72,6 @@ form.onsubmit = async e => {
 };
 
 // Filtros
-[filtroM, filtroP].forEach(s => s.onchange = () => {
-  // El snapshot ya lo maneja, así que no hace falta recargar.
-});
+[filtroM, filtroP].forEach(s => s.onchange = renderizarTareas);
 
 btnCerrar.onclick = () => signOut(auth).then(() => location.href="login.html");
