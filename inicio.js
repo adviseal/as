@@ -16,7 +16,8 @@ btn.addEventListener('click', () => {
       return window.location.href = 'registro.html';
     }
     const grado = snap.data().grado;  // "1"… "6"
-    // Redirijo al HTML <grado>.html
-    window.location.href = `${grado}.html`;
+    const grupo = snap.data().grupo;  // "a"… "g"
+    // Redirijo al HTML <grado/grupo>.html
+    window.location.href = `${grado}${grupo}.html`;
   });
 });
