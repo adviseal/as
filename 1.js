@@ -59,14 +59,15 @@ form.onsubmit = async e => {
   await addDoc(collection(db, "tareas"), data);
 
   // Enviar correo con EmailJS
-  await emailjs.send("service_cq0m6yw","template_tc0vivn"), {
-    titulo: data.titulo,
-    descripcion: data.descripcion,
-    fecha: data.fecha,
-    hora: data.hora,
-    materia: data.materia,
-    prioridad: data.prioridad
-  });
+  await emailjs.send("service_cq0m6yw", "template_tc0vivn", {
+  titulo: data.titulo,
+  descripcion: data.descripcion,
+  fecha: data.fecha,
+  hora: data.hora,
+  materia: data.materia,
+  prioridad: data.prioridad
+});
+
 
   form.reset();
 };
