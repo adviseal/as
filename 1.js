@@ -59,7 +59,7 @@ form.onsubmit = async e => {
   await addDoc(collection(db, "tareas"), data);
 
   // Enviar correo con EmailJS
-  await emailjs.send("servicio_cq0m6yw", "plantilla_a61xp0r", {
+  await emailjs.send("service_cq0m6yw", "template_tc0vivn", {
     titulo: data.titulo,
     descripcion: data.descripcion,
     fecha: data.fecha,
