@@ -59,20 +59,23 @@ form.onsubmit = async e => {
   await addDoc(collection(db, "tareas"), data);
 
   // Enviar correo con EmailJS
-  await emailjs.send("service_cq0m6yw", "template_tc0vivn", {
+  await emailjs.send("service_cq0m6yw","template_tc0vivn"), {
+    
   titulo: data.titulo,
   descripcion: data.descripcion,
   fecha: data.fecha,
   hora: data.hora,
   materia: data.materia,
   prioridad: data.prioridad
-});
+};
 
 
   form.reset();
 };
 
 // Filtros
-[filtroM, filtroP].forEach(s => s.onchange = renderizarTareas);
+[filtroMateria, filtroPrioridad].forEach(s => s.onchange = () => {
+  // El snapshot ya lo maneja así que no hace falta recargar
+});
 
 btnCerrar.onclick = () => signOut(auth).then(() => location.href="login.html");
